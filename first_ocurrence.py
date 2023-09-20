@@ -1,25 +1,21 @@
 def strStr(haystack, needle):
     sol = -1
-    for j in range(0, len(haystack)):
-        print(haystack[j])
-
-
-
-        # if haystack[j] == needle[0]:
-        #     for i in range(0, len(needle)):
-        #         if needle[i] == haystack[j+i]:
-        #             print(j,i)
-        #             print(needle[i])
-        #             if needle[i] == needle[-1]:
-        #                 sol = j
-        #                 return sol
-        #             else:
-        #                 pass
-        #         else:
-        #             pass
-        # else:
-        #     print("no")
+    try:
+        for j in range(0, len(haystack)):
+            if haystack[j] == needle[0]:
+                k = j
+                #print(f"esto es j {j}")
+                for i in range(0, len(needle)):
+                    if i == len(needle) -1 and haystack[k] == needle[-1]:
+                        sol = j
+                        return sol
+                    elif needle[i] == haystack[k]:
+                        k = k+1
+                    else:
+                        break
+    except:
         return sol
+    return sol
 
-temp = strStr("enelaguaclara", "ela")
+temp = strStr("aab", "abbab")
 print(temp)
