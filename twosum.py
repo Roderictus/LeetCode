@@ -1,23 +1,30 @@
 def twosum(nums, target):
-    sol = []
-    for i in range(0,len(nums)):
-        print(nums[i])
-        nums_minus = nums.copy()
-        nums_minus[i] = "a"
-        #print(nums_minus)
-        #print(nums)
+    tempnums = nums.copy()
+    for i in range(0, len(nums)):
+        tempnum = nums[i]
+        tempnums[tempnums.index(tempnum)] = "a"
+        if target - nums[i] in tempnums:
+            for numero in tempnums:
+                if target - nums[i] == numero:
+                    lista = [i, tempnums.index(numero)]
+                    return lista
 
-        if target - nums[i] in nums_minus:
-            print(f"target {target} - nums[i] {nums[i]} i = {i}")
-            sol.append(i)
-            sol.append(nums.index(target - nums_minus[i]))
-            return sol
-
-
+class Solution(object):
+    def twoSum(self, nums, target):
+        tempnums = nums.copy()
+        for i in range(0, len(nums)):
+            tempnum = nums[i]
+            tempnums[tempnums.index(tempnum)] = "a"
+            if target - nums[i] in tempnums:
+                for numero in tempnums:
+                    if target - nums[i] == numero:
+                        lista = [i, tempnums.index(numero)]
+                        return lista
 
 
 
 #nums = [2,7,11,15]
-nums = [3,3]
+#nums = [3,3]
+nums = [3,2,4]
 temp = twosum(nums,6)
 print(temp)
